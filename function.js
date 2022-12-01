@@ -37,7 +37,7 @@ const show = () =>{
     });
 }
 
-//membuat function dengan nama savedata dengan parameter name,email,tlp
+//membuat function update
 const update = (name, email, tlp, update) => {
     //memanggil function loadData dan menyimpannya di variable contacts
     const contacts = loadContact()
