@@ -45,22 +45,20 @@ const update = (name, email, tlp, update) => {
     try{
         //mencari index data dengan mencocokan data json dengan masukan
     const updt = contacts.findIndex(data => {
-        return data.name === update ||
-        data.email === update ||
-        data.tlp === update
+        return data.name === update
     })
 
     //membuat logika untuk mengubah data
-    if(contacts[updt].name === update)contacts[updt].name = name
-    if(contacts[updt].email === update)contacts[updt].email = email
-    if(contacts[updt] === update)contacts[updt].tlp = tlp
+    if(name != undefined)contacts[updt].name = name
+    if(email != undefined)contacts[updt].email = email
+    if(tlp != undefined)contacts[updt].tlp = tlp
 
     console.log(`Update data yang mempunyai nama : ${update}`);
 
     // memasukan data ke file Json
     fs.writeFileSync('data/contacts.json', JSON.stringify(contacts));
 
-    //menangkap error apabila data tidak ada
+    //menangkap error apabila data tidak
     }catch(e){
         console.log("Data not found");
         return false;
